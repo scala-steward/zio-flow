@@ -32,26 +32,18 @@
 
 <span class="hljs-keyword">val</span> left: <span class="hljs-type">Remote</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Remote</span>(<span class="hljs-number">1</span>)
 <span class="hljs-comment">// left: Remote[Int] = Literal(</span>
-<span class="hljs-comment">//   value = Primitive(value = 1, standardType = int),</span>
-<span class="hljs-comment">//   schemaA = Primitive(standardType = int, annotations = IndexedSeq())</span>
+<span class="hljs-comment">//   value = Primitive(value = 1, standardType = int)</span>
 <span class="hljs-comment">// )</span>
 <span class="hljs-keyword">val</span> right: <span class="hljs-type">Remote</span>[<span class="hljs-type">Int</span>] = <span class="hljs-type">Remote</span>(<span class="hljs-number">1</span>)
 <span class="hljs-comment">// right: Remote[Int] = Literal(</span>
-<span class="hljs-comment">//   value = Primitive(value = 1, standardType = int),</span>
-<span class="hljs-comment">//   schemaA = Primitive(standardType = int, annotations = IndexedSeq())</span>
+<span class="hljs-comment">//   value = Primitive(value = 1, standardType = int)</span>
 <span class="hljs-comment">// )</span>
 
 <span class="hljs-keyword">val</span> sum: <span class="hljs-type">Remote</span>[<span class="hljs-type">Int</span>] = left + right
 <span class="hljs-comment">// sum: Remote[Int] = BinaryNumeric(</span>
-<span class="hljs-comment">//   left = Literal(</span>
-<span class="hljs-comment">//     value = Primitive(value = 1, standardType = int),</span>
-<span class="hljs-comment">//     schemaA = Primitive(standardType = int, annotations = IndexedSeq())</span>
-<span class="hljs-comment">//   ),</span>
-<span class="hljs-comment">//   right = Literal(</span>
-<span class="hljs-comment">//     value = Primitive(value = 1, standardType = int),</span>
-<span class="hljs-comment">//     schemaA = Primitive(standardType = int, annotations = IndexedSeq())</span>
-<span class="hljs-comment">//   ),</span>
-<span class="hljs-comment">//   numeric = zio.flow.remote.numeric.Numeric$NumericInt$@2eed6e58,</span>
+<span class="hljs-comment">//   left = Literal(value = Primitive(value = 1, standardType = int)),</span>
+<span class="hljs-comment">//   right = Literal(value = Primitive(value = 1, standardType = int)),</span>
+<span class="hljs-comment">//   numeric = zio.flow.remote.numeric.Numeric$NumericInt$@434e5fe,</span>
 <span class="hljs-comment">//   operator = Add</span>
 <span class="hljs-comment">// )</span>
 </code></pre>
@@ -60,62 +52,37 @@
 <pre><code class="hljs css language-scala"><span class="hljs-keyword">val</span> flow: <span class="hljs-type">ZFlow</span>[<span class="hljs-type">Any</span>, <span class="hljs-type">Nothing</span>, <span class="hljs-type">Int</span>] =
   <span class="hljs-type">ZFlow</span>.succeed(<span class="hljs-number">1</span>)
 <span class="hljs-comment">// flow: ZFlow[Any, Nothing, Int] = Return(</span>
-<span class="hljs-comment">//   value = Literal(</span>
-<span class="hljs-comment">//     value = Primitive(value = 1, standardType = int),</span>
-<span class="hljs-comment">//     schemaA = Primitive(standardType = int, annotations = IndexedSeq())</span>
-<span class="hljs-comment">//   )</span>
+<span class="hljs-comment">//   value = Literal(value = Primitive(value = 1, standardType = int))</span>
 <span class="hljs-comment">// )</span>
 
 <span class="hljs-keyword">val</span> incrementedFlow: <span class="hljs-type">ZFlow</span>[<span class="hljs-type">Any</span>, <span class="hljs-type">Nothing</span>, <span class="hljs-type">Int</span>] =
   flow.map(_ + <span class="hljs-number">1</span>)
 <span class="hljs-comment">// incrementedFlow: ZFlow[Any, Nothing, Int] = Fold(</span>
 <span class="hljs-comment">//   value = Return(</span>
-<span class="hljs-comment">//     value = Literal(</span>
-<span class="hljs-comment">//       value = Primitive(value = 1, standardType = int),</span>
-<span class="hljs-comment">//       schemaA = Primitive(standardType = int, annotations = IndexedSeq())</span>
-<span class="hljs-comment">//     )</span>
+<span class="hljs-comment">//     value = Literal(value = Primitive(value = 1, standardType = int))</span>
 <span class="hljs-comment">//   ),</span>
 <span class="hljs-comment">//   ifError = EvaluatedRemoteFunction(</span>
-<span class="hljs-comment">//     input = Unbound(</span>
-<span class="hljs-comment">//       identifier = eac792b0-2c14-46b0-b476-3de6a2e51d8f,</span>
-<span class="hljs-comment">//       schemaA = Transform(</span>
-<span class="hljs-comment">//         codec = Primitive(standardType = unit, annotations = IndexedSeq()),</span>
-<span class="hljs-comment">//         f = zio.flow.Schemas$$Lambda$13491/1671107854@4cfbe38f,</span>
-<span class="hljs-comment">//         g = zio.flow.Schemas$$Lambda$13492/1608164184@b8fb28c,</span>
-<span class="hljs-comment">//         annotations = IndexedSeq(),</span>
-<span class="hljs-comment">//         identity = SourceLocation(</span>
-<span class="hljs-comment">//           path = "/home/runner/work/zio-flow/zio-flow/zio-flow/shared/src/main/scala/zio/flow/Schemas.scala",</span>
-<span class="hljs-comment">//           line = 14,</span>
-<span class="hljs-comment">//           col = 43</span>
-<span class="hljs-comment">//         )</span>
-<span class="hljs-comment">//       )</span>
-<span class="hljs-comment">//     ),</span>
+<span class="hljs-comment">//     input = Unbound(identifier = e4e2a0b1-16b4-4813-b753-84691fdbcb6e),</span>
 <span class="hljs-comment">//     result = Flow(</span>
 <span class="hljs-comment">//       flow = Fail(</span>
-<span class="hljs-comment">//         error = Unbound(</span>
-<span class="hljs-comment">//           identifier = eac792b0-2c14-46b0-b476-3de6a2e51d8f,</span>
-<span class="hljs-comment">//           schemaA = Transform(</span>
-<span class="hljs-comment">//             codec = Primitive(standardType = unit, annotations = IndexedSeq()),</span>
-<span class="hljs-comment">//             f = zio.flow.Schemas$$Lambda$13491/1671107854@4cfbe38f,</span>
-<span class="hljs-comment">//             g = zio.flow.Schemas$$Lambda$13492/1608164184@b8fb28c,</span>
-<span class="hljs-comment">//             annotations = IndexedSeq(),</span>
-<span class="hljs-comment">//             identity = SourceLocation(</span>
-<span class="hljs-comment">//               path = "/home/runner/work/zio-flow/zio-flow/zio-flow/shared/src/main/scala/zio/flow/Schemas.scala",</span>
-<span class="hljs-comment">//               line = 14,</span>
-<span class="hljs-comment">//               col = 43</span>
-<span class="hljs-comment">//             )</span>
-<span class="hljs-comment">//           )</span>
-<span class="hljs-comment">//         )</span>
+<span class="hljs-comment">//         error = Unbound(identifier = e4e2a0b1-16b4-4813-b753-84691fdbcb6e)</span>
 <span class="hljs-comment">//       )</span>
 <span class="hljs-comment">//     )</span>
 <span class="hljs-comment">//   ),</span>
 <span class="hljs-comment">//   ifSuccess = EvaluatedRemoteFunction(</span>
-<span class="hljs-comment">//     input = Unbound(</span>
-<span class="hljs-comment">//       identifier = 909d3817-938f-445c-8bc2-98483c0710d9,</span>
-<span class="hljs-comment">//       schemaA = Primitive(standardType = int, annotations = IndexedSeq())</span>
-<span class="hljs-comment">//     ),</span>
+<span class="hljs-comment">//     input = Unbound(identifier = f9fe333e-6cb6-4db9-8b76-697be08782b9),</span>
 <span class="hljs-comment">//     result = Flow(</span>
-<span class="hljs-comment">// ...</span>
+<span class="hljs-comment">//       flow = Return(</span>
+<span class="hljs-comment">//         value = BinaryNumeric(</span>
+<span class="hljs-comment">//           left = Unbound(identifier = f9fe333e-6cb6-4db9-8b76-697be08782b9),</span>
+<span class="hljs-comment">//           right = Literal(value = Primitive(value = 1, standardType = int)),</span>
+<span class="hljs-comment">//           numeric = zio.flow.remote.numeric.Numeric$NumericInt$@434e5fe,</span>
+<span class="hljs-comment">//           operator = Add</span>
+<span class="hljs-comment">//         )</span>
+<span class="hljs-comment">//       )</span>
+<span class="hljs-comment">//     )</span>
+<span class="hljs-comment">//   )</span>
+<span class="hljs-comment">// )</span>
 </code></pre>
 <p>Notice that here the function we provided to <code>ZFlow#map</code> looked identical to the one we would provide to <code>ZIO#map</code> in a <code>ZIO</code> application. This is exactly the interface we want and lets use &quot;forget&quot; in most cases that we are working with the world of <code>Remote</code> values instead of the world of normal values.</p>
 <p>This also reflects the idea that the <code>Remote</code> world is a &quot;mirror&quot; of the world of ordinary values and absent underlying implementation limitations (e.g. arbitrary Scala functions are not serializable) the interface for working with <code>Remote</code> values should look and feel as similar to the interface for working with ordinary values as possible.</p>
