@@ -7,7 +7,7 @@
         </script><script src="/zio-flow/js/scrollSpy.js"></script><link rel="stylesheet" href="/zio-flow/css/main.css"/><script src="/zio-flow/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/zio-flow/"><img class="logo" src="/zio-flow/img/navbar_brand2x.png" alt="zio-flow"/><h2 class="headerTitleWithLogo">zio-flow</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/zio-flow/docs/overview/overview_index" target="_self">Overview</a></li><li class=""><a href="/zio-flow/docs/usecases/usecases_index" target="_self">Use Cases</a></li><li class=""><a href="api/index.html" target="_self">API</a></li><li class=""><a href="/zio-flow/docs/about/about_index" target="_self">About</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Remote</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="remote-values"></a><a href="#remote-values" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remote Values</h1>
 <p>The <code>Remote</code> data type forms the backbone of ZIO Flow and allows us to safely describe values that may be part of computations on multiple remote nodes.</p>
 <p>In ordinary Scala we are used to working with values defined by the Scala library such as <code>Int</code> and <code>String</code> as well as user defined data types such as a <code>User</code> and interfaces such as a <code>UserService</code>. The problem with using these data types in a distributed in a setting where we need to perform distributed or resilient workflows is that these data types may not actually be safely serializable and cause our programs to fail at runtime.</p>
-<p>Even if we are extremely diligent about trying to avoid this, it can be easy to avoid acidentally closing over other variables, resulting in data that is either not serializable or takes up much more space than we intended. This is an infamous problem with frameworks like Spark despite their best efforts to avoid it.</p>
+<p>Even if we are extremely diligent about trying to avoid this, it can be easy to avoid accidentally closing over other variables, resulting in data that is either not serializable or takes up much more space than we intended. This is an infamous problem with frameworks like Spark despite their best efforts to avoid it.</p>
 <p>ZIO Flow handles this issue in a principled way with its <code>Remote</code> data type, which is a <em>description</em> of a value that may potentially exist on a remote node. This way you can easily look at any value and tell just from its type whether it is a <code>Remote</code> value that is safe to use in resilient, distributed computations or an ordinary value that is fine to use on a single node but does not provide these guarantees.</p>
 <p>Generally ZIO Flow will require that the values we work with be <code>Remote</code> values so that it can safely replicate them across multiple nodes or reload them from durable storage in the event of a failure.</p>
 <p>For example, compare the signature of the <code>map</code> operator on <code>ZIO</code> and <code>ZFlow</code>:</p>
@@ -43,7 +43,7 @@
 <span class="hljs-comment">// sum: Remote[Int] = BinaryNumeric(</span>
 <span class="hljs-comment">//   left = Literal(value = Primitive(value = 1, standardType = int)),</span>
 <span class="hljs-comment">//   right = Literal(value = Primitive(value = 1, standardType = int)),</span>
-<span class="hljs-comment">//   numeric = zio.flow.remote.numeric.Numeric$NumericInt$@5fdeb68,</span>
+<span class="hljs-comment">//   numeric = zio.flow.remote.numeric.Numeric$NumericInt$@347cb08f,</span>
 <span class="hljs-comment">//   operator = Add</span>
 <span class="hljs-comment">// )</span>
 </code></pre>
@@ -62,21 +62,21 @@
 <span class="hljs-comment">//     value = Literal(value = Primitive(value = 1, standardType = int))</span>
 <span class="hljs-comment">//   ),</span>
 <span class="hljs-comment">//   ifError = UnboundRemoteFunction(</span>
-<span class="hljs-comment">//     input = Unbound(identifier = 7abb0427-41f2-44a6-90dc-49fc64219723),</span>
+<span class="hljs-comment">//     input = Unbound(identifier = d6d697be-6dea-4573-a803-a24541cb15b2),</span>
 <span class="hljs-comment">//     result = Flow(</span>
 <span class="hljs-comment">//       flow = Fail(</span>
-<span class="hljs-comment">//         error = Unbound(identifier = 7abb0427-41f2-44a6-90dc-49fc64219723)</span>
+<span class="hljs-comment">//         error = Unbound(identifier = d6d697be-6dea-4573-a803-a24541cb15b2)</span>
 <span class="hljs-comment">//       )</span>
 <span class="hljs-comment">//     )</span>
 <span class="hljs-comment">//   ),</span>
 <span class="hljs-comment">//   ifSuccess = UnboundRemoteFunction(</span>
-<span class="hljs-comment">//     input = Unbound(identifier = 07245f20-c157-4742-94a2-264cd9c38b10),</span>
+<span class="hljs-comment">//     input = Unbound(identifier = 778d55ce-90db-4bc3-bb6c-f47480df29aa),</span>
 <span class="hljs-comment">//     result = Flow(</span>
 <span class="hljs-comment">//       flow = Return(</span>
 <span class="hljs-comment">//         value = BinaryNumeric(</span>
-<span class="hljs-comment">//           left = Unbound(identifier = 07245f20-c157-4742-94a2-264cd9c38b10),</span>
+<span class="hljs-comment">//           left = Unbound(identifier = 778d55ce-90db-4bc3-bb6c-f47480df29aa),</span>
 <span class="hljs-comment">//           right = Literal(value = Primitive(value = 1, standardType = int)),</span>
-<span class="hljs-comment">//           numeric = zio.flow.remote.numeric.Numeric$NumericInt$@5fdeb68,</span>
+<span class="hljs-comment">//           numeric = zio.flow.remote.numeric.Numeric$NumericInt$@347cb08f,</span>
 <span class="hljs-comment">//           operator = Add</span>
 <span class="hljs-comment">//         )</span>
 <span class="hljs-comment">//       )</span>
