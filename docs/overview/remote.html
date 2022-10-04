@@ -40,11 +40,13 @@
 <span class="hljs-comment">// )</span>
 
 <span class="hljs-keyword">val</span> sum: <span class="hljs-type">Remote</span>[<span class="hljs-type">Int</span>] = left + right
-<span class="hljs-comment">// sum: Remote[Int] = BinaryNumeric(</span>
+<span class="hljs-comment">// sum: Remote[Int] = Binary(</span>
 <span class="hljs-comment">//   left = Literal(value = Primitive(value = 1, standardType = int)),</span>
 <span class="hljs-comment">//   right = Literal(value = Primitive(value = 1, standardType = int)),</span>
-<span class="hljs-comment">//   numeric = zio.flow.remote.numeric.Numeric$NumericInt$@347cb08f,</span>
-<span class="hljs-comment">//   operator = Add</span>
+<span class="hljs-comment">//   operator = Numeric(</span>
+<span class="hljs-comment">//     operator = Add,</span>
+<span class="hljs-comment">//     numeric = zio.flow.remote.numeric.Numeric$NumericInt$@43628327</span>
+<span class="hljs-comment">//   )</span>
 <span class="hljs-comment">// )</span>
 </code></pre>
 <p>We see here that we can use the <code>apply</code> constructor on <code>Remote</code> to lift any existing value into a remote value as long as there is a <code>Schema</code> for it. We'll talk more about schemas below but you can think of a <code>Schema</code> as describing the &quot;structure&quot; of some Scala type as a value, allowing us to safely serialize it and deserialize it, among other things.</p>
@@ -62,22 +64,24 @@
 <span class="hljs-comment">//     value = Literal(value = Primitive(value = 1, standardType = int))</span>
 <span class="hljs-comment">//   ),</span>
 <span class="hljs-comment">//   ifError = UnboundRemoteFunction(</span>
-<span class="hljs-comment">//     input = Unbound(identifier = d6d697be-6dea-4573-a803-a24541cb15b2),</span>
+<span class="hljs-comment">//     input = Unbound(identifier = 0f52c758-5908-48ce-9280-10d01eeb15d6),</span>
 <span class="hljs-comment">//     result = Flow(</span>
 <span class="hljs-comment">//       flow = Fail(</span>
-<span class="hljs-comment">//         error = Unbound(identifier = d6d697be-6dea-4573-a803-a24541cb15b2)</span>
+<span class="hljs-comment">//         error = Unbound(identifier = 0f52c758-5908-48ce-9280-10d01eeb15d6)</span>
 <span class="hljs-comment">//       )</span>
 <span class="hljs-comment">//     )</span>
 <span class="hljs-comment">//   ),</span>
 <span class="hljs-comment">//   ifSuccess = UnboundRemoteFunction(</span>
-<span class="hljs-comment">//     input = Unbound(identifier = 778d55ce-90db-4bc3-bb6c-f47480df29aa),</span>
+<span class="hljs-comment">//     input = Unbound(identifier = 2346713e-9b2f-478f-b327-2ab8ee8eb461),</span>
 <span class="hljs-comment">//     result = Flow(</span>
 <span class="hljs-comment">//       flow = Return(</span>
-<span class="hljs-comment">//         value = BinaryNumeric(</span>
-<span class="hljs-comment">//           left = Unbound(identifier = 778d55ce-90db-4bc3-bb6c-f47480df29aa),</span>
+<span class="hljs-comment">//         value = Binary(</span>
+<span class="hljs-comment">//           left = Unbound(identifier = 2346713e-9b2f-478f-b327-2ab8ee8eb461),</span>
 <span class="hljs-comment">//           right = Literal(value = Primitive(value = 1, standardType = int)),</span>
-<span class="hljs-comment">//           numeric = zio.flow.remote.numeric.Numeric$NumericInt$@347cb08f,</span>
-<span class="hljs-comment">//           operator = Add</span>
+<span class="hljs-comment">//           operator = Numeric(</span>
+<span class="hljs-comment">//             operator = Add,</span>
+<span class="hljs-comment">//             numeric = zio.flow.remote.numeric.Numeric$NumericInt$@43628327</span>
+<span class="hljs-comment">//           )</span>
 <span class="hljs-comment">//         )</span>
 <span class="hljs-comment">//       )</span>
 <span class="hljs-comment">//     )</span>
