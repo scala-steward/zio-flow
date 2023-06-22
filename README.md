@@ -6,7 +6,7 @@
 
 ZIO Flow is an engine for executing persistent, distributed, fault-tolerant applications, providing an easy and powerful way to build stateful serverless applications.
 
-[![Development](https://img.shields.io/badge/Project%20Stage-Development-green.svg)](https://github.com/zio/zio/wiki/Project-Stages) ![CI Badge](https://github.com/zio/zio-flow/workflows/CI/badge.svg) [![Sonatype Releases](https://img.shields.io/nexus/r/https/oss.sonatype.org/dev.zio/zio-flow_2.13.svg?label=Sonatype%20Release)](https://oss.sonatype.org/content/repositories/releases/dev/zio/zio-flow_2.13/) [![Sonatype Snapshots](https://img.shields.io/nexus/s/https/oss.sonatype.org/dev.zio/zio-flow_2.13.svg?label=Sonatype%20Snapshot)](https://oss.sonatype.org/content/repositories/snapshots/dev/zio/zio-flow_2.13/) [![javadoc](https://javadoc.io/badge2/dev.zio/zio-flow-docs_2.13/javadoc.svg)](https://javadoc.io/doc/dev.zio/zio-flow-docs_2.13) [![ZIO Flow](https://img.shields.io/github/stars/zio/zio-flow?style=social)](https://github.com/zio/zio-flow)
+[![Development](https://img.shields.io/badge/Project%20Stage-Development-green.svg)](https://github.com/zio/zio/wiki/Project-Stages) ![CI Badge](https://github.com/zio/zio-flow/workflows/CI/badge.svg) [![Sonatype Snapshots](https://img.shields.io/nexus/s/https/oss.sonatype.org/dev.zio/zio-flow_2.13.svg?label=Sonatype%20Snapshot)](https://oss.sonatype.org/content/repositories/snapshots/dev/zio/zio-flow_2.13/) [![ZIO Flow](https://img.shields.io/github/stars/zio/zio-flow?style=social)](https://github.com/zio/zio-flow)
 
 ZIO Flow helps you orchestrate complex business logic, without having to worry about fallible systems, transient failures, manual rollbacks, or other infrastructure.
 
@@ -20,7 +20,7 @@ ZIO Flow helps you orchestrate complex business logic, without having to worry a
 For defining ZIO Flow programs, you need to add the following dependency to your `build.sbt` file:
 
 ```scala
-libraryDependencies += "dev.zio" %% "zio-flow" % "1.0.0-RC3"
+libraryDependencies += "dev.zio" %% "zio-flow" % "<version>"
 ```
 
 This module is available for Scala.js as well.
@@ -31,8 +31,8 @@ There are a couple of _activity libraries_ providing integration with 3rd party 
 and they only have to be present on the definition side of your flows. The executor does not need to have these libraries on the classpath.
 
 ```scala
-libraryDependencies += "dev.zio" %% "zio-flow-twilio" % "1.0.0-RC3"
-libraryDependencies += "dev.zio" %% "zio-flow-sendgrid" % "1.0.0-RC3"
+libraryDependencies += "dev.zio" %% "zio-flow-twilio" % "<version>"
+libraryDependencies += "dev.zio" %% "zio-flow-sendgrid" % "<version>"
 ```
 
 There are many ways to execute ZIO Flow programs. The easiest way is to use a compiled version of the built-in _ZIO Flow Server_:
@@ -46,16 +46,16 @@ We will provide ready to use Docker images as well in the future.
 To embed the ZIO Flow executor in your own application, you need to add the following dependency:
 
 ```scala
-libraryDependencies += "dev.zio" %% "zio-flow-runtime" % "1.0.0-RC3"
+libraryDependencies += "dev.zio" %% "zio-flow-runtime" % "<version>"
 ```
 
 For more information about the executors, see [Execution](execution). 
 You will also need to choose a [persistent backend implementation](backends):
 
 ```scala
-libraryDependencies += "dev.zio" %% "zio-flow-rocksdb" % "1.0.0-RC3"
-libraryDependencies += "dev.zio" %% "zio-flow-dynamodb" % "1.0.0-RC3"
-libraryDependencies += "dev.zio" %% "zio-flow-cassandra" % "1.0.0-RC3"
+libraryDependencies += "dev.zio" %% "zio-flow-rocksdb" % "<version>"
+libraryDependencies += "dev.zio" %% "zio-flow-dynamodb" % "<version>"
+libraryDependencies += "dev.zio" %% "zio-flow-cassandra" % "<version>"
 ```
 
 ## Documentation
